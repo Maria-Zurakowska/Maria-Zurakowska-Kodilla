@@ -1,25 +1,27 @@
 package com.kodilla.task1;
 
-import java.util.Scanner;
-
 public class Square implements Figure2D{
 
-    String name = "Square";
+    String name;
+    int side;
 
+    public Square(String name, int side) {
+        this.name = name;
+        this.side = side;
+    }
+
+    @Override
     public String getName() {
         return name;
     }
 
-    Scanner scr = new Scanner(System.in);
-    int a = scr.nextInt();
-
     @Override
-    public void calculareCirumference() {
-        System.out.println(a*4);
+    public double calculareCirumference() {
+        return 4*side;
     }
 
     @Override
-    public void calculateSurfaceArea() {
-        System.out.println(a*a);
+    public double calculateSurfaceArea() {
+        return side*side;
     }
 }

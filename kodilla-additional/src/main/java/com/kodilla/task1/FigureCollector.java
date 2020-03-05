@@ -21,11 +21,9 @@ public class FigureCollector {
     public void showFigures(){
 
         for (Figure2D fig : figures){
-            System.out.println(fig);
-
-
+            System.out.println(fig.getName() + "Circumference: " + fig.calculareCirumference());
+            System.out.println(fig.getName() + "Surface Area: " + fig.calculateSurfaceArea());
         }
-
     }
 
 

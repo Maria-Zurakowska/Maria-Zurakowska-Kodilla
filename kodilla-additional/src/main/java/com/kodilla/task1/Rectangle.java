@@ -4,24 +4,28 @@ import java.util.Scanner;
 
 public class Rectangle implements Figure2D {
 
-    String name = "Rectangle";
+    String name;
+    int sideA;
+    int sideB;
 
+    public Rectangle(String name, int sideA, int sideB) {
+        this.name = name;
+        this.sideA = sideA;
+        this.sideB = sideB;
+    }
+
+    @Override
     public String getName() {
         return name;
     }
 
-    Scanner scr = new Scanner(System.in);
-    int a = scr.nextInt();
-    int b = scr.nextInt();
-
     @Override
-    public void calculareCirumference() {
-        System.out.println(2*a + 2*b);
-
+    public double calculareCirumference() {
+        return 2*sideA + 2*sideB;
     }
 
     @Override
-    public void calculateSurfaceArea() {
-        System.out.println(a*b);
+    public double calculateSurfaceArea() {
+        return sideA*sideB;
     }
 }
