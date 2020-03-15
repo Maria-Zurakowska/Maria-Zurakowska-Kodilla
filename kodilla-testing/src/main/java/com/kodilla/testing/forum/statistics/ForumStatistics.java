@@ -14,6 +14,8 @@ public class ForumStatistics{
     double averageCommentsPerUser;
     double averageCommentsPerPost;
 
+
+
     public void calculateAdvStatistics(Statistics statistics){
         this.usersQuantity = statistics.userNames().size();
         this.postsQuantity = statistics.postCount();
