@@ -14,14 +14,23 @@ public class ForumStatistics{
     double averageCommentsPerUser;
     double averageCommentsPerPost;
 
-
-
     public void calculateAdvStatistics(Statistics statistics){
         this.usersQuantity = statistics.userNames().size();
         this.postsQuantity = statistics.postCount();
         this.commentsQuantity = statistics.commentsCount();
-        this.averagePostsPerUser = postsQuantity/usersQuantity;
-        this.averageCommentsPerUser = commentsQuantity/usersQuantity;
+
+        if(usersQuantity!=0){
+            this.averagePostsPerUser = postsQuantity/usersQuantity;
+        } else {
+            this.averagePostsPerUser = 0;
+        }
+
+        if(usersQuantity != 0){
+            this.averageCommentsPerUser = commentsQuantity/usersQuantity;
+        } else {
+            this.averageCommentsPerUser = 0;
+        }
+
 //jeśli liczba postów = 0 to średnia liczba postów = 0
         if(postsQuantity !=0){
             this.averageCommentsPerPost = commentsQuantity/postsQuantity;
