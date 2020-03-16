@@ -49,6 +49,11 @@ public class ForumStatisticsTestSuite {
         Assert.assertEquals(200,forumStatistics.getUsersQuantity());
         Assert.assertEquals(0, forumStatistics.getAverageCommentsPerPost());
         Assert.assertEquals(6,forumStatistics.getAveragePostsPerUser());
+        Assert.assertEquals(55,forumStatistics.getAverageCommentsPerUser());
+        Assert.assertEquals(40,forumStatistics.getPostsQuantity());
+        Assert.assertEquals(100,forumStatistics.getCommentsQuantity());
+
+
 
     }
     //gdy liczba postów = 1000
@@ -72,6 +77,9 @@ public class ForumStatisticsTestSuite {
         Assert.assertEquals(0,forumStatistics.getAverageCommentsPerPost());
         Assert.assertEquals(2,forumStatistics.getAverageCommentsPerPost());
         Assert.assertEquals(0,forumStatistics.getAveragePostsPerUser());
+        Assert.assertEquals(55,forumStatistics.getAverageCommentsPerUser());
+        Assert.assertEquals(40,forumStatistics.getPostsQuantity());
+        Assert.assertEquals(100,forumStatistics.getCommentsQuantity());
     }
     //gdy liczba komentarzy = 0
     @Test
@@ -91,9 +99,12 @@ public class ForumStatisticsTestSuite {
         forumStatistics.calculateAdvStatistics(statisticsMock);
 
         //Then
-        Assert.assertEquals(0,forumStatistics.getAverageCommentsPerPost());
-        Assert.assertEquals(0, forumStatistics.getAverageCommentsPerUser());
+        Assert.assertEquals(2,forumStatistics.getAverageCommentsPerPost());
+        Assert.assertEquals(11, forumStatistics.getAverageCommentsPerUser());
         Assert.assertEquals(2, forumStatistics.getAveragePostsPerUser());
+        Assert.assertEquals(55,forumStatistics.getAverageCommentsPerUser());
+        Assert.assertEquals(40,forumStatistics.getPostsQuantity());
+        Assert.assertEquals(100,forumStatistics.getCommentsQuantity());
     }
     //gdy liczba komentarzy < liczba postów
     @Test
@@ -116,6 +127,9 @@ public class ForumStatisticsTestSuite {
         Assert.assertEquals(4, forumStatistics.getAverageCommentsPerPost());
         Assert.assertEquals(4,forumStatistics.getAverageCommentsPerUser());
         Assert.assertEquals(2, forumStatistics.getAveragePostsPerUser());
+        Assert.assertEquals(55,forumStatistics.getAverageCommentsPerUser());
+        Assert.assertEquals(40,forumStatistics.getPostsQuantity());
+        Assert.assertEquals(100,forumStatistics.getCommentsQuantity());
     }
     //gdy liczba komentarzy > liczba postów
     @Test
@@ -138,6 +152,9 @@ public class ForumStatisticsTestSuite {
         Assert.assertEquals(10, forumStatistics.getAverageCommentsPerPost());
         Assert.assertEquals(10,forumStatistics.getAverageCommentsPerUser());
         Assert.assertEquals(20, forumStatistics.getAveragePostsPerUser());
+        Assert.assertEquals(55,forumStatistics.getAverageCommentsPerUser());
+        Assert.assertEquals(100,forumStatistics.getPostsQuantity());
+        Assert.assertEquals(30,forumStatistics.getCommentsQuantity());
 
     }
     //gdy liczba użytkowników = 0
@@ -159,6 +176,9 @@ public class ForumStatisticsTestSuite {
         Assert.assertEquals(0, forumStatistics.getAverageCommentsPerPost());
         Assert.assertEquals(30,forumStatistics.getAverageCommentsPerUser());
         Assert.assertEquals(3,forumStatistics.getAveragePostsPerUser());
+        Assert.assertEquals(55,forumStatistics.getAverageCommentsPerUser());
+        Assert.assertEquals(40,forumStatistics.getPostsQuantity());
+        Assert.assertEquals(100,forumStatistics.getCommentsQuantity());
     }
     //gdy liczba użytkowników = 100
     @Test
@@ -181,6 +201,8 @@ public class ForumStatisticsTestSuite {
         Assert.assertEquals(5,forumStatistics.getAverageCommentsPerPost());
         Assert.assertEquals(45,forumStatistics.getAverageCommentsPerUser());
         Assert.assertEquals(3,forumStatistics.getAveragePostsPerUser());
-
+        Assert.assertEquals(55,forumStatistics.getAverageCommentsPerUser());
+        Assert.assertEquals(40,forumStatistics.getPostsQuantity());
+        Assert.assertEquals(100,forumStatistics.getCommentsQuantity());
     }
 }
