@@ -22,7 +22,12 @@ public class ForumStatistics{
         this.commentsQuantity = statistics.commentsCount();
         this.averagePostsPerUser = postsQuantity/usersQuantity;
         this.averageCommentsPerUser = commentsQuantity/usersQuantity;
-        this.averageCommentsPerPost = commentsQuantity/postsQuantity;
+//jeśli liczba postów = 0 to średnia liczba postów = 0
+        if(postsQuantity !=0){
+            this.averageCommentsPerPost = commentsQuantity/postsQuantity;
+        } else {
+            this.averageCommentsPerPost = 0;
+        }
     }
 
     public Statistics getStatistics() {
