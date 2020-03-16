@@ -21,13 +21,9 @@ public class ForumStatistics{
 
         if(usersQuantity!=0){
             this.averagePostsPerUser = postsQuantity/usersQuantity;
-        } else {
-            this.averagePostsPerUser = 0;
-        }
-
-        if(usersQuantity != 0){
             this.averageCommentsPerUser = commentsQuantity/usersQuantity;
         } else {
+            this.averagePostsPerUser = 0;
             this.averageCommentsPerUser = 0;
         }
 
