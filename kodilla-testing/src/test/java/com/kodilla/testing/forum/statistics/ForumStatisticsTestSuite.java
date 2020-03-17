@@ -1,6 +1,5 @@
 package com.kodilla.testing.forum.statistics;
 
-import com.sun.tools.javac.util.List;
 import org.junit.*;
 import org.junit.Assert;
 import org.junit.Test;
