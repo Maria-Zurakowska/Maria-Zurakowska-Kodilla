@@ -7,9 +7,9 @@ public class ForumStatistics{
 // A odczyt robisz getterami do poszczególnych statystyk
 
     Statistics statistics;
-    int usersQuantity;
-    int postsQuantity;
-    int commentsQuantity;
+    double usersQuantity;
+    double postsQuantity;
+    double commentsQuantity;
     double averagePostsPerUser;
     double averageCommentsPerUser;
     double averageCommentsPerPost;
@@ -39,15 +39,15 @@ public class ForumStatistics{
         return statistics;
     }
 
-    public int getUsersQuantity() {
+    public double getUsersQuantity() {
         return usersQuantity;
     }
 
-    public int getPostsQuantity() {
+    public double getPostsQuantity() {
         return postsQuantity;
     }
 
-    public int getCommentsQuantity() {
+    public double getCommentsQuantity() {
         return commentsQuantity;
     }
 
