@@ -19,14 +19,14 @@ public class WorldTestSuite {
         continents.add(new Continent("America"));
 
         //When
-        BigDecimal totalContinents = continents.stream()
-                .map(Continent::getCountries)
-                .reduce(BigDecimal.ZERO,(sum, current) -> sum = sum.add(current));
-
+        World world = new World();
+        BigDecimal bigd = new BigDecimal("5435353534");
+        Country country = new Country("Asia",bigd);
+        country.getNumberOfPeople();
+        BigDecimal current = world.getPeopleQuantity(country.getNumberOfPeople());
 
         //Then
         BigDecimal expected = new BigDecimal("5435353534");
-        Assert.assertEquals(expected,totalContinents);
-
+        Assert.assertEquals(expected,current);
     }
 }

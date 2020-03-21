@@ -12,6 +12,8 @@ public final class World {
         continents.add(continent);
     }
 
+    public World() {
+    }
     public List<Continent> getContinents() {
         return continents;
     }
@@ -21,8 +23,6 @@ public final class World {
                 .flatMap(continents ->continents.getCountries().stream())
                 .map(Country::getNumberOfPeople)
                 .reduce(BigDecimal.ZERO,(sum,current) ->sum = sum.add(current));
-
-
-
     }
+
 }
