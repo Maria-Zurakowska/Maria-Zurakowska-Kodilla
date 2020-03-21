@@ -2,22 +2,22 @@ package com.kodilla.stream.array;
 
 import org.junit.Assert;
 import org.junit.Test;
-
-import static com.kodilla.stream.array.ArrayOperations.getAverage;
+import java.util.stream.IntStream;
 
 public class ArrayOperationsTestSuite {
     @Test
     public void testGetAverage(){
 
         //Given
-        int[] array = new int[2];
-        array[0] = 4;
-        array[1] = 6;
+        int[] tab = new int[20];
+        for (int i = 0; i < 20; i++) {
+            tab[i] = i*i;
+        }
 
         //When
-       getAverage(array);
+        Double average = ArrayOperations.getAverage(tab);
 
         //Then
-        Assert.assertEquals(5,getAverage(array));
+        Assert.assertEquals(average, 123.5, 0.001);
     }
 }

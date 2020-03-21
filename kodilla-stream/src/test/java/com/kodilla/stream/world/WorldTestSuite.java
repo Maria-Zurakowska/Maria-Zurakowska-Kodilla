@@ -13,17 +13,21 @@ public class WorldTestSuite {
     public void testGetPeopleQuantity(){
         //Given
         List<Continent> continents = new ArrayList<>();
+        List<Country> countries = new ArrayList<>();
         continents.add(new Continent("Asia"));
         continents.add(new Continent("Europe"));
         continents.add(new Continent("Africa"));
         continents.add(new Continent("America"));
 
+        countries.add(new Country("France", new BigDecimal("4353")));
+        countries.add(new Country("Spain", new BigDecimal("463636")));
+        countries.add(new Country("Estonia", new BigDecimal("246224")));
+        countries.add(new Country("Sweden", new BigDecimal("230235")));
+
+
         //When
         World world = new World();
-        BigDecimal bigd = new BigDecimal("5435353534");
-        Country country = new Country("Asia",bigd);
-        country.getNumberOfPeople();
-        BigDecimal current = world.getPeopleQuantity(country.getNumberOfPeople());
+        BigDecimal current = world.getPeopleQuantity();
 
         //Then
         BigDecimal expected = new BigDecimal("5435353534");

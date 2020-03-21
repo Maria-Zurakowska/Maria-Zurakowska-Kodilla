@@ -3,15 +3,15 @@ package com.kodilla.stream.array;
 import java.util.stream.IntStream;
 
 public interface ArrayOperations {
-    public static int[] getAverage(int[] numbers) {
-        numbers = new int[2];
+     static double getAverage(int[] numbers) {
 
-        IntStream.range(0,numbers.length)
-                .average();
-
-        IntStream.range(0, numbers.length)
-                .forEach(System.out::println);
-
-        return numbers;
+        double average = IntStream.range(0, numbers.length)
+                .map(n -> numbers[n])
+                .map(s -> {
+                    System.out.println(s);
+                    return s;
+                })
+                .average().getAsDouble();
+        return average;
     }
 }
