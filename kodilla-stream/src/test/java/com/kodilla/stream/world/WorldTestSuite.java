@@ -12,25 +12,34 @@ public class WorldTestSuite {
     @Test
     public void testGetPeopleQuantity(){
         //Given
-        List<Continent> continents = new ArrayList<>();
-        List<Country> countries = new ArrayList<>();
-        continents.add(new Continent("Asia"));
-        continents.add(new Continent("Europe"));
-        continents.add(new Continent("Africa"));
-        continents.add(new Continent("America"));
+        Country poland = new Country("Poland", new BigDecimal("34535"));
+        Country china = new Country("China", new BigDecimal("3453"));
+        Country egypt = new Country("Egypt", new BigDecimal("542235"));
+        Country canada = new Country("Canada", new BigDecimal("34545"));
 
-        countries.add(new Country("France", new BigDecimal("4353")));
-        countries.add(new Country("Spain", new BigDecimal("463636")));
-        countries.add(new Country("Estonia", new BigDecimal("246224")));
-        countries.add(new Country("Sweden", new BigDecimal("230235")));
+
+        Continent europe = new Continent("Europe");
+        Continent asia = new Continent("Asia");
+        Continent africa = new Continent("Africa");
+        Continent america = new Continent("America");
+
+        europe.addCountry(poland);
+        asia.addCountry(china);
+        africa.addCountry(egypt);
+        america.addCountry(canada);
 
 
         //When
         World world = new World();
+        world.addContinent(europe);
+        world.addContinent(asia);
+        world.addContinent(africa);
+        world.addContinent(america);
+
         BigDecimal current = world.getPeopleQuantity();
 
         //Then
-        BigDecimal expected = new BigDecimal("5435353534");
+        BigDecimal expected = new BigDecimal("614768");
         Assert.assertEquals(expected,current);
     }
 }
