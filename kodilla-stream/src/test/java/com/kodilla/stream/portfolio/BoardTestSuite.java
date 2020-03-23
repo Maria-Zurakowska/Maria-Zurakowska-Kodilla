@@ -163,7 +163,6 @@ public class BoardTestSuite {
 // czy znaleziono dokładnie dwa takie zadania
         Assert.assertEquals(2,longTasks);
     }
-
     @Test
     public void testAddTaskListAverageWorkingOnTask(){
         //Given
@@ -173,24 +172,16 @@ public class BoardTestSuite {
         List<TaskList> taskListInProgress = new ArrayList<>();
         taskListInProgress.add(new TaskList("In progress task 1"));
 
-//liczba zadań do wykonania
-         long tasks =    project.getTaskLists().stream()
-                        .filter(taskListInProgress::contains) //filtruję zadania, które są w toku
-                        .flatMap(tl -> tl.getTasks().stream())
-                        .count(); // liczę ile zadań jest w toku
+//ile dni upłynęło od daty utworzenia do daty bieżącej
 
-//ile dni upłynęło od deadline'u do daty bieżącej
-
-        long numberOfDays = project.getTaskLists().stream()
-
-                        .filter(taskListInProgress::contains) //filtruję zadania w toku
-                        .flatMap(n->n.getTasks().stream()) // przechodzę do listy zadań w zadaniach w toku
-                        .map(t -> t.getCreated())//private final LocalDate created;//data utworzenia zadania
-                        .map(d->d.compareTo(ChronoUnit.DAYS.between())
-
+        double numberOfDays = project.getTaskLists().stream()
+                        .filter(taskListInProgress::contains)
+                        .flatMap(n->n.getTasks().stream())
+                        .map(t -> t.getCreated())
+                        .mapToLong(d->ChronoUnit.DAYS.between(d,LocalDate.now()))
+                        .average().getAsDouble();
 
         //Then
-        Assert.assertEquals(3,tasks)); // sprawdzam czy sa 3 zadania inProgress.
-
+        Assert.assertEquals(10,numberOfDays,0.001);
     }
 }
