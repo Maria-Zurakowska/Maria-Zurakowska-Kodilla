@@ -1,41 +1,36 @@
-import java.util.Random;
-
 public class Apple {
 
-    Random rand = new Random();
-    Coord coord = new Coord();
+    private int y;
+    private int x;
 
-
-    private int appleHeight = rand.nextInt(41);
-    private int appleWidth = rand.nextInt(41);
-
-    public Apple(int appleHeight, int appleWidth) {
-        this.appleHeight = appleHeight;
-        this.appleWidth = appleWidth;
+    public Apple(int y, int x) {
+        this.y = y;
+        this.x = x;
     }
 
-    public int getAppleHeight() {
-        return appleHeight;
+    public int getY() {
+        return y;
     }
 
-    public int getAppleWidth() {
-        return appleWidth;
+    public int getX() {
+        return x;
     }
 
-    public void setAppleHeight(int appleHeight) {
-        this.appleHeight = appleHeight;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Apple)) return false;
+
+        Apple apple = (Apple) o;
+
+        if (getY() != apple.getY()) return false;
+        return getX() == apple.getX();
     }
 
-    public void setAppleWidth(int appleWidth) {
-        this.appleWidth = appleWidth;
+    @Override
+    public int hashCode() {
+        int result = getY();
+        result = 31 * result + getX();
+        return result;
     }
-
-    public void appleGenerator(){
-
-        coord.setX(rand.nextInt(41));
-        coord.setY(rand.nextInt(41));
-
-    }
-
-
 }

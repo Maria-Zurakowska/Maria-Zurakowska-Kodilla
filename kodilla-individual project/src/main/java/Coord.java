@@ -1,9 +1,5 @@
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-
 public class Coord {
-//klasa przechowująca współrzędne
+    //klasa przechowująca współrzędne
     private int x;
     private int y;
 
@@ -30,5 +26,4 @@ public class Coord {
     public void setY(int y) {
         this.y = y;
     }
-
 }

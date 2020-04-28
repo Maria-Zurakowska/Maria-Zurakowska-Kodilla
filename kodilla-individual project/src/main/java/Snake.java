@@ -1,90 +1,101 @@
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 public class Snake {
 
-// głowa węża
-    Coord coord = new Coord(10,10);
-    Random rand = new Random();
-
-// zmienna, która przechowuje kierunek (twarz weza)//kierunek startowy węża
+    // zmienna, która przechowuje kierunek (twarz weza)//kierunek startowy węża
     String direction = "RIGHT";
 
-// metody, które zmieniają kierunek (zmiennej, która przechowuje początkowy kierunek)
-    void directionUp(){
-        this.direction = "UP";
-    };
-    void directionDown(){
-        this.direction = "DOWN";
-    };
-    void directionRight(){
-        this.direction = "RIGHT";
-    };
-    void directionLeft(){
-        this.direction = "LEFT";
-    };
-
     public Snake(Coord coord) {
-        this.coord = coord;
+        tail.add(coord); //kolekcja elementow weza
     }
 
-// metody do poruszania się w obranym kierunku
-
-    void moveUp(){
-        this.coord.setY(coord.getY()-1);
-    };
-    void moveDown(){
-        this.coord.setY(coord.getY()+1);
-    };
-    void moveRight(){
-        this.coord.setX(coord.getX()+1);
-    };
-    void moveLeft(){
-        this.coord.setX(coord.getX()-1);
-    };
-
-
-// lista, która przechowuje elementy ogona
+    // lista, która przechowuje elementy ogona
     List<Coord> tail = new ArrayList<>();
 
-    // metoda ma liste, ktora przechowuje elementy ogona
-// jak dodaje ogon? dodaje element w miejsce glowy, dlaczego tak, a nie na koncu ogona?
-//unikam syt.gdy waz skreca i glowa jest w innej linii niz ogon
-
-// do ogona, który na początku jest głową dodaję bieżącą pozycję głowy
-// w skrócie - powiększenie rozmiaru węża
-
-    public void extendTail(){
-       tail.add(this.coord);
+    public void generateTail() {
+        Coord coord = tail.get(0);
+        for (int i = 0; i < 3; i++) { //3 bo tak
+            tail.add(new Coord(coord.getX() - (i + 1), coord.getY())); // pierwsze to rzad, dodaje za glowa
+        }
     }
 
-// metoda, aby wąż się ruszał po zjedzeniu jabłka
-    public void move(Coord move){
-        System.out.println(move.getX() + " " + move.getY());
-        Coord snakeTail = tail.remove(tail.size()-1); //usuwam ostatni element listy
-                                                            // z elementami ogona
-        this.coord = move; //pozycja glowy = ruch
-        tail.add(0,this.coord); //dodaj na początku listy elementow ogona pozycje glowy
+    public List<Coord> getTail() {
+        return tail;
     }
 
-// metoda na sprawdzenie, czy trafilismy na sciane planszy (Board)
+    // metoda, aby wąż się ruszał// ruch w kierunku zgodnym z aktualnym kierunkiem// WYKONUJE RUCH O 1 KLATKĘ
+    public void move(List<Apple> apples, Board board) { //board - sprawdzamy czy dotarlismy do krawedzi
 
-    public boolean checkIfWall(Coord nextCell){
-        for (Coord cell : tail){
-            if(cell == nextCell){
-                return true;
+        final Coord head = transformHead(tail.get(0));
+        try {
+            if (head.getX() <= 0 || head.getX() >= board.getBoardLength() || head.getY() <= 0 || head.getY() >= board.getBoardHeight()) {
+                throw new IllegalArgumentException("Error");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.exit(1);
+        }
+        tail.add(0, head);
+
+        try {
+            if (isTail(head.getX(), head.getY())) {
+
+                throw new IllegalArgumentException("Ssssss");
+            }
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+            System.exit(1);
+        }
+
+        if (!isApple(apples, head.getX(), head.getY())) {
+            tail.remove(tail.size() - 1);
+        } else {
+            Apple apple = apples.stream()
+                    .filter(a -> a.getX() == head.getX() && a.getY() == head.getY())
+                    .findAny()// zwraca znaleziony obiekt albo null //Optional
+                    .orElse(null);
+            apples.remove(apple);
+        }
+    }
+
+    private boolean isTail(int x, int y) {
+        boolean result = false;
+
+        for (int i = 1; i < tail.size(); i++) {
+            if (tail.get(i).getX() == x && tail.get(i).getY() == y) {
+                result = true;
             }
         }
-        return false;
+        return result;
     }
 
+    private boolean isApple(List<Apple> apples, int x, int y) { //SPRAWDZA, CZY WJECHALIŚMY NA JABŁKO, WTEDY OGON SIĘ NIE USUWA TYLKO WĄŻ SIĘ WYDŁUŻA O 1 KRATKĘ.
+        boolean result = false;
+        for (Apple apple : apples) {
+            if (apple.getX() == x && apple.getY() == y) {
+                result = true;
+            }
+        }
+        return result;
+    }
 
-
-
-
-
-
-
-
+    private Coord transformHead(Coord head) { //DOKLEJA JEDNĄ NOWĄ X W MIEJSCU ZGODNYM Z KIERUNKIEM - DIRECTION
+        Coord newHead = new Coord(head.getX(), head.getY());
+        switch (direction) {
+            case "UP":
+                newHead.setY(head.getY() - 1);
+                break;
+            case "DOWN":
+                newHead.setY(head.getY() + 1);
+                break;
+            case "LEFT":
+                newHead.setX(head.getX() - 1);
+                break;
+            case "RIGHT":
+                newHead.setX(head.getX() + 1);
+                break;
+        }
+        return newHead;
+    }
 }
