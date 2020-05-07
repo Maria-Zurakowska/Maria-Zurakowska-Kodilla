@@ -10,4 +10,8 @@ public class ForumUser {
         this.username = "John Smith";
 
     }
+
+    public String getUsername() {
+        return username;
+    }
 }
