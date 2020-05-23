@@ -18,11 +18,13 @@ public class PaintingTask implements Task{
 
     @Override
     public String getTaskName() {
+
         return taskName;
     }
 
     @Override
     public boolean isTaskExecuted() {
+
         return true;
     }
 }
