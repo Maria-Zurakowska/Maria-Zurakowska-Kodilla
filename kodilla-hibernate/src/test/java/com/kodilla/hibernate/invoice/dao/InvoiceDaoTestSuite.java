@@ -69,13 +69,14 @@ public class InvoiceDaoTestSuite {
         Assert.assertNotEquals(0,item3ID);
 
         //CleanUp
+        itemDao.deleteById(item1ID);
+        itemDao.deleteById(item2ID);
+        itemDao.deleteById(item3ID);
         invoiceDao.deleteById(invoice1Id);
         productDao.deleteById(product1Id);
         productDao.deleteById(product2Id);
         productDao.deleteById(product3Id);
-        itemDao.deleteById(item1ID);
-        itemDao.deleteById(item2ID);
-        itemDao.deleteById(item3ID);
+
 
 
     }
