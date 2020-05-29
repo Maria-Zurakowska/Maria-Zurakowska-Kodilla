@@ -16,7 +16,6 @@ import java.util.Optional;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-@Transactional
 public class TaskDaoTestSuite {
     @Autowired
     private TaskDao taskDao;
@@ -32,7 +31,7 @@ public class TaskDaoTestSuite {
         Optional<Task> readTask = taskDao.findById(id);
         Assert.assertTrue(readTask.isPresent());
         //CleanUp
-        taskDao.deleteAll();
+        taskDao.delete(task);
     }
     @Test
     public void testTaskDaoFindByDuration(){
@@ -48,8 +47,7 @@ public class TaskDaoTestSuite {
         Assert.assertEquals(1,readTasks.size());
 
         ///CleanUp
-        int id = readTasks.get(0).getId();
-        taskDao.deleteAll();
+        taskDao.delete(task);
 
     }
     @Test
@@ -66,6 +64,6 @@ public class TaskDaoTestSuite {
         Assert.assertNotEquals(0, id);
 
         //CleanUp
-        //taskDao.deleteAll();
+        taskDao.delete(task);
     }
 }
