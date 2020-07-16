@@ -1,5 +1,4 @@
 package com.kodilla.hibernate.manytomany;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
@@ -10,6 +9,13 @@ import java.util.List;
             name = "Employee.retrieveEmployeeBySurname",
             query = "FROM Employee WHERE lastname = :LASTNAME"
 )
+//24.1 Facade pattern
+@NamedNativeQuery(
+        name = "Employee.retrieveEmployeesNamesWhereNamesLikeParam",
+        query = "SELECT * FROM EMPLOYEES WHERE LASTNAME like concat('%', :name, '%')",
+        resultClass = Employee.class
+)
+//--------------
 
 @Entity
 @Table(name = "EMPLOYEES")
@@ -24,7 +30,6 @@ public class Employee {
         this.lastname = lastname;
 
     }
-
     public Employee() {
     }
 

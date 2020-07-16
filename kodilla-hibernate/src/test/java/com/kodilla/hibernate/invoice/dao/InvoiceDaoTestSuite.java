@@ -1,5 +1,4 @@
 package com.kodilla.hibernate.invoice.dao;
-
 import com.kodilla.hibernate.invoice.Invoice;
 import com.kodilla.hibernate.invoice.Item;
 import com.kodilla.hibernate.invoice.Product;
@@ -9,7 +8,6 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-
 import java.math.BigDecimal;
 
 @RunWith(SpringRunner.class)
@@ -37,12 +35,9 @@ public class InvoiceDaoTestSuite {
         Item item2 = new Item(new BigDecimal("200"),2, new BigDecimal("200"), product2);
         Item item3 = new Item(new BigDecimal("100"),1, new BigDecimal("100"), product3);
 
-
         invoice1.getItems().add(item1);
         invoice1.getItems().add(item2);
         invoice1.getItems().add(item3);
-
-
         //When
         invoiceDao.save(invoice1);
         productDao.save(product1);
@@ -58,7 +53,6 @@ public class InvoiceDaoTestSuite {
         int item1ID = item1.getId();
         int item2ID = item2.getId();
         int item3ID = item3.getId();
-
         //Then
         Assert.assertNotEquals(0,invoice1Id);
         Assert.assertNotEquals(0,product1Id);
@@ -67,7 +61,6 @@ public class InvoiceDaoTestSuite {
         Assert.assertNotEquals(0,item1ID);
         Assert.assertNotEquals(0,item2ID);
         Assert.assertNotEquals(0,item3ID);
-
         //CleanUp
         itemDao.deleteById(item1ID);
         itemDao.deleteById(item2ID);
@@ -76,8 +69,5 @@ public class InvoiceDaoTestSuite {
         productDao.deleteById(product1Id);
         productDao.deleteById(product2Id);
         productDao.deleteById(product3Id);
-
-
-
     }
 }

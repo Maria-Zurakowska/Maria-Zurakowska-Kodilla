@@ -17,4 +17,10 @@ public interface CompanyDao extends CrudRepository <Company,Integer> {
     @Query
     List<Company> retrieveByFirstThreeLettersOfCompanyName(@Param("SEARCHEDNAME") String name);
 
+    //24.1 Facade pattern
+    @Query
+    List<Company> retrieveCompaniesNamesWhereNamesLikeParam(@Param("name") String name);
+
+
+
 }

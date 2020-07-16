@@ -1,5 +1,4 @@
 package com.kodilla.spring.calculator;
-
 import org.springframework.stereotype.Component;
 
 @Component
@@ -7,6 +6,7 @@ public class Calculator {
     private Display display;
 
     public Calculator(final Display display) {
+
         this.display = display;
     }
 

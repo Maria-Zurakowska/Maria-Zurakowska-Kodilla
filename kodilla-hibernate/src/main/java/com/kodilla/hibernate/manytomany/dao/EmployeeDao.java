@@ -16,4 +16,7 @@ public interface EmployeeDao extends CrudRepository<Employee,Integer> {
     @Query
     List<Employee> retrieveEmployeeBySurname(@Param("LASTNAME")String lastname);
 
+    //24.1 Facade pattern
+    @Query
+    List<Employee> retrieveEmployeesNamesWhereNamesLikeParam(@Param("name") String name);
 }
