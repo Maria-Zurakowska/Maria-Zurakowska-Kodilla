@@ -25,6 +25,8 @@ dependencies {
     //Dla lokalnej bazy danych to ma być odkomentowane
     compile('mysql:mysql-connector-java')
 
+    compile('org.springframework.boot:spring-boot-starter-aop')
+
     //Dla Heroku niżej odkomentować
     //compile('org.postgresql:postgresql')
 
