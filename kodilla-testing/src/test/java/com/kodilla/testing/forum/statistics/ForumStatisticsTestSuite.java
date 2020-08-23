@@ -55,7 +55,7 @@ public class ForumStatisticsTestSuite {
 
 
     }
-    //gdy liczba postów = 1000
+
     @Test
     public void testCalculateAdvStatisticsThousandPosts(){
         //Given
@@ -80,7 +80,7 @@ public class ForumStatisticsTestSuite {
         Assert.assertEquals(1000,forumStatistics.getPostsQuantity(),0.001);
         Assert.assertEquals(33.0,forumStatistics.getCommentsQuantity(),0.001);
     }
-    //gdy liczba komentarzy = 0
+
     @Test
     public void testCalculateAdvStatisticsZeroComments(){
         //Given
@@ -105,7 +105,7 @@ public class ForumStatisticsTestSuite {
         Assert.assertEquals(20.0,forumStatistics.getPostsQuantity(),0.001);
         Assert.assertEquals(0.0,forumStatistics.getCommentsQuantity(),0.001);
     }
-    //gdy liczba komentarzy < liczba postów
+
     @Test
     public void testCalculateAdvStatisticsLessPostsThanComments(){
         //Given
@@ -130,7 +130,7 @@ public class ForumStatisticsTestSuite {
         Assert.assertEquals(20.0,forumStatistics.getPostsQuantity(),0.001);
         Assert.assertEquals(130.0,forumStatistics.getCommentsQuantity(),0.001);
     }
-    //gdy liczba komentarzy > liczba postów
+
     @Test
     public void testCalculateAdvStatisticsLessCommentsThanPosts(){
         //Given
@@ -156,7 +156,7 @@ public class ForumStatisticsTestSuite {
         Assert.assertEquals(10.0,forumStatistics.getCommentsQuantity(),0.001);
 
     }
-    //gdy liczba użytkowników = 0
+
     @Test
     public void testCalculateAdvStatisticsZeroUsers(){
         //Given
@@ -179,7 +179,7 @@ public class ForumStatisticsTestSuite {
         Assert.assertEquals(40,forumStatistics.getPostsQuantity(),0.001);
         Assert.assertEquals(1000.0,forumStatistics.getCommentsQuantity(),0.001);
     }
-    //gdy liczba użytkowników = 100
+
     @Test
     public void testCalculateAdvStatisticsHundredUsers(){
         //Given
