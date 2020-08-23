@@ -5,7 +5,7 @@ import org.junit.Assert;
 
 public class SimpleInvoiceTestSuite {
 
-    @Test //->sprawdzam metodę .getValueToPay, stąd nazwa testu
+    @Test
     public void testGetValueToPay(){
         //Given
         SimpleInvoice invoice = new SimpleInvoice();
