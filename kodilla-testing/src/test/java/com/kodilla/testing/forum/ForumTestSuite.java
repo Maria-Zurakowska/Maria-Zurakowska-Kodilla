@@ -21,8 +21,7 @@ public class ForumTestSuite {
     }
 
     @Test
-// Bardzo ważne jest, aby każdy przypadek testowy był metodą typu public void, a jego nazwa rozpoczynała się od słowa test.
-// Żadne inne metody nie będą rozpoznawane przez JUnit jako testy.
+
     public void testCaseUsername(){
         //Given
         SimpleUser simpleUser = new SimpleUser("theForumUser", "John Smith");
