@@ -10,7 +10,7 @@ public class ExceptionHandling {
             result = secondChallenge.probablyIWillThrowException(3.0,1.5);
         } catch (Exception e) {
 
-            System.out.println("coś " + e);
+            System.out.println("test " + e);
 
         } finally {
             System.out.println("Attempt...");
