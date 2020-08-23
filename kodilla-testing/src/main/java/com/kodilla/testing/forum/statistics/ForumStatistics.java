@@ -62,6 +62,7 @@ public class ForumStatistics{
     public double getAverageCommentsPerPost() {
         return averageCommentsPerPost;
     }
+
     public void showStatistics() {
         System.out.println("Statistics:\n"
                 + "User count = " + usersQuantity + "\n"
