@@ -5,9 +5,6 @@ public class ShapeCollector {
 
     ArrayList<Shape> shapes = new ArrayList<Shape>();
 
-// Shape shape - obiekt kazdej klasy impelementujacej ten interfejs
-// boolean - daje true/false -> tu. sprawdza czy sie dodalo (true) lub nie (false)
-
     public boolean addFigure(Shape shape) {
         return shapes.add(shape);
     }
