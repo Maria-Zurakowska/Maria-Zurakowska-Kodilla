@@ -23,6 +23,7 @@ public final class ForumUser {
     public boolean removeFriend(ForumUser user){
         return friends.remove(user);
     }
+
 //String, bo zamieniam w strumieniu ForumUser na String (przez .map), getLocation jest String
 // Zwraca Set będący listą lokalizacji przyjaciów (location)
 
@@ -34,10 +35,10 @@ public final class ForumUser {
 
 
     public Set<String> getLocationsOfFriendsOfFriends(){
-        return friends.stream()                 // tworzę strumień na kolekcji friends
+        return friends.stream()
 
 //dla każdego user pobieram listę przyjaciów (.getFriends) i przekazuję do dalszego przetwarzania
-//w postaci nowego strem, czyli .... .stream()
+//w postaci nowego stream -- .stream()
 // od tego momentu pracuję na liście „przyjaciół przyjaciół”
 
                 .flatMap(user -> user.getFriends().stream())
