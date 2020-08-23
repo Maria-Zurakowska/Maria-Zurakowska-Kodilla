@@ -77,25 +77,13 @@ public class ZAD1 {
     }
 
     public static void main(String[] args) {
-//        String expression = getString("Enter string:");
-//        char[] chars = findCharsWithCodeDigitsSumGreaterThan(expression, 15);
-//        System.out.println(Arrays.toString(chars));
-        //----------
-//        String secondExpression = getString("Enter second String: ");
-//        String[] strings = stringsWithCodeDigitsSumGreaterAndLesserThan(secondExpression,15);
-//        System.out.println(Arrays.toString(strings));
+
         String[] arr = stringsWithCodeDigitsSumGreaterAndLesserThan("Kasia", 10);
-        //System.out.println(arr);
+
             for (String s : arr ){
                 System.out.println(s);
             }
 
     }
 
-    // TODO
-    // Pobierz od usera napis i zwroc tablice dwoch napisow
-    // Pierwszy napis w tablicy zawiera znaki ktorych kod jest mniejszy od podanej jako argument
-    // wartosci x.
-    // Drugi napis w tablicy zawiera znaki ktorych kod jest wiekszy od podanej jako argument
-    // wartosci x.
 }
