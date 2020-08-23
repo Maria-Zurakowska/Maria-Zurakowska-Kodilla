@@ -7,7 +7,7 @@ public class UserTestSuite {
     @Test
     public void testDefaultSharingStrategies() {
         //Given
-        User user1 = new Millenials("John Smith");
+        User user1 = new Millennials("John Smith");
         User user2 = new ZGeneration("Kate Hudson");
         User user3 = new YGeneration("Mike Benton");
 
@@ -29,7 +29,7 @@ public class UserTestSuite {
     @Test
     public void testIndividualSharingStrategy() {
         //Given
-        User user1 = new Millenials("John Smith");
+        User user1 = new Millennials("John Smith");
 
         //When
         String user1Shared = user1.sharePost();
