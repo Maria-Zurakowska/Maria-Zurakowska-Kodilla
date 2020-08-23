@@ -7,7 +7,7 @@ public class BoardRow {
 
     // tworzę listę, która będzie przechowywać obiekty klasy Figure (to jest interfejs)
     // co w skrócie oznacza, że pod Figure mogę wstawić każdy obiekt klasy,
-    // które implementuje ten interfejs, tutaj -Queen, None, Pawn
+    // który implementuje ten interfejs, tutaj -Queen, None, Pawn
     private List<Figure> cols = new ArrayList<>();
 
 // konstruktor bezparametrowy a w nim jest dodawanych 8 obiektow typu None
@@ -17,7 +17,6 @@ public class BoardRow {
         }
     }
 
-    // metoda typu List<Figure>, a więc kolekcji
     public List<Figure> getCols() {
 
         return cols;

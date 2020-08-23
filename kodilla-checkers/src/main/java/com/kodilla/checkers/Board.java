@@ -5,7 +5,6 @@ import java.util.List;
 
 public class Board {
     // tworzę listę, która będzie przechowywać obiekty klasy BoardRow
-    // nie trzeba w new ArrayList<> w nawiasi nic dodawać, notacja diamentowa, samo się domyśli
     private List<BoardRow> rows = new ArrayList<>();
 
     //tworzę konstruktor, w którym w pętli do 8 pól dodaję do
@@ -20,14 +19,14 @@ public class Board {
         return rows.get(row).getCols().get(col);// zwracam element listy rows pobiera row (paramentr metody)
                                                 // metoda .getCols() jest z klasy BoardRow
     }
-    // metoda typu void (... argument typu Figure..)
+
     public void setFigure(int col, int row, Figure figure){
         rows.get(row).getCols().set(col, figure);
     }
 
     @Override
     public String toString() {
-        // po prostu tworze -----
+
         String s = "|-----------------------|\n"; // \n ->przejdz do nowego wiersza
         for (int row = 0; row < 8; row++) {
             s+= rows.get(row).toString();
