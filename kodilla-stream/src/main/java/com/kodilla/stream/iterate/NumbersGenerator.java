@@ -8,7 +8,7 @@ public final class NumbersGenerator {
         Stream.iterate(1,n-> n +1)
                 .limit(max)             //filtrowanie
                 .filter(n-> n % 2 ==0)  //filtrowanie
-                .forEach(System.out::println); //operacja terminalna -MUSI BYC NA KONCU
+                .forEach(System.out::println);
     }
 
 }
