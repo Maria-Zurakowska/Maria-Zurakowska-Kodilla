@@ -82,7 +82,6 @@ public class BoardTestSuite {
         project.addTaskList(taskListInProgress);
         project.addTaskList(taskListDone);
 
-//ta metoda jest typu Board, więc ma zwrócić zmienną typu Board, tu. project
         return project;
     }
 
@@ -94,7 +93,6 @@ public class BoardTestSuite {
         //When
 
         //Then
-// Sprawdza, czy w tablicy project typu Board zostały zdefiniowane 3 listy zadań
         Assert.assertEquals(3,project.getTaskLists().size());
     }
 
@@ -152,10 +150,10 @@ public class BoardTestSuite {
                 .filter(inProgressTasks::contains)
 
                 .flatMap(tl -> tl.getTasks().stream())// z listy zadań przechodzimy na konkretne zadania
-                .map(t -> t.getCreated())//.getCreated() metoda klasy Task , private final LocalDate created;
+                .map(t -> t.getCreated())//.getCreated() metoda klasy Task, private final LocalDate created;
 
 //.compareTo() metoda klasy LocalDate
-//do strumienia trafiają daty, które są starsze lub równa niż 10 dni przed
+//do strumienia trafiają daty, które są starsze lub równe niż 10 dni przed
 //bieżącą datą
                 .filter(d->d.compareTo(LocalDate.now().minusDays(10))<=0)
                 .count();
