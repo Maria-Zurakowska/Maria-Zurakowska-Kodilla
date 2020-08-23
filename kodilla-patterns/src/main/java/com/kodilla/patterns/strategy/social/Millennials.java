@@ -1,7 +1,7 @@
 package com.kodilla.patterns.strategy.social;
 
-public class Millenials extends User {
-    public Millenials(String username) {
+public class Millennials extends User {
+    public Millennials(String username) {
         super(username);
         this.socialPublisher = new FacebookPublisher();
     }
