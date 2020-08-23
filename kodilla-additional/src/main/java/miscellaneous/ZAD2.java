@@ -24,7 +24,7 @@ public class ZAD2 {
     static int[] generateArray(int[] arr, int a, int b) {
         int size = countElementsInRange(arr, a, b);
 
-        if (size <=0){
+        if (size <= 0) {
             throw new IllegalArgumentException("size is not correct");
         }
 
@@ -38,7 +38,6 @@ public class ZAD2 {
 
         int[] resultArr = new int[size];
 
-        // TODO - sprawdzic czy do tej pory wszystko dziala. Dokończyć zadanie
 
         int idx = 0;
         for (int i = 0; i < arr.length; i++) {
@@ -58,32 +57,19 @@ public class ZAD2 {
         int[] arr = new int[size];
 
         for (int i = 0; i < size; i++) {
-            int value = random.nextInt(b-a)+a;
+            int value = random.nextInt(b - a) + a;
             arr[i] = value;
         }
         return arr;
     }
 
-
-
     public static void main(String[] args) {
 
-        // metoda countElements... działa poprawnie
-
-        int[] input = generateArrayWithNumbersInRange(1,100);
-        int[] arr1 = generateArray(input,1,30);
-        int[] arr2 = generateArray(input,31,66);
-        int[] arr3 = generateArray(input,67,100);
+        int[] input = generateArrayWithNumbersInRange(1, 100);
+        int[] arr1 = generateArray(input, 1, 30);
+        int[] arr2 = generateArray(input, 31, 66);
+        int[] arr3 = generateArray(input, 67, 100);
         System.out.println("");
 
-
-
     }
-
-    // TODO
-    // Napisz program w ktorym metoda przyjmuje jako argument tablice liczb calkowitych i zwraca
-    // dwie tablic - w jednej sa liczby parzyste z tablice podanej jako argument a w drugiej sa
-    // liczby nieparzyste z tablicy podanej jako argument. Uwaga tablica wejsciowa moze zawierac
-    // rowniez liczby ujemne a my zakladamy ze liczby ujemne w tablicach wynikowych nie sa brane pod
-    // uwage
 }
