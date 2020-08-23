@@ -5,7 +5,6 @@ import java.util.List;
 
 public final class Forum {
 
-// tworzę listę użytkowników-ForumUser
     private final List<ForumUser> forumUsersList = new ArrayList<>();
 
     public Forum(){
@@ -17,7 +16,6 @@ public final class Forum {
         forumUsersList.add(new ForumUser(9483, "mnowakowska",'F',222,1969,8,26));
     }
 
-// tworzę metodę, która zwraca kolekcję użytkowników-ForumUser
      public List<ForumUser> getUserList(){
          return new ArrayList<>(forumUsersList);
      }
