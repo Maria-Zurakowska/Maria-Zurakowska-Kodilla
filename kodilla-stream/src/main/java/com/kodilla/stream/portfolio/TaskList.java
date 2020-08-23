@@ -16,6 +16,7 @@ public final class TaskList {
     public boolean removeTask(Task task){
         return tasks.remove(task);
     }
+
 // Getter zwraca listę zadań i List<Task>
 //  tworzy nową listę używając konstruktora kopiującego
 
