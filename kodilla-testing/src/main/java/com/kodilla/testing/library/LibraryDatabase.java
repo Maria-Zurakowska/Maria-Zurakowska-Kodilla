@@ -3,12 +3,10 @@ package com.kodilla.testing.library;
 import java.util.List;
 
 public interface LibraryDatabase {
-    // lists books having title beginning with titleFragment
 
-    //TO JEST METODA. INTERFEJS MA TYLKO METODY
+    // lists books having title beginning with titleFragment
     List<Book> listBooksWithCondition(String titleFragment);
 
-    // list books borrowed by libraryUser
     List<Book> listBooksInHandsOf(LibraryUser libraryUser);
 
     // try to rent a book for libraryUser
