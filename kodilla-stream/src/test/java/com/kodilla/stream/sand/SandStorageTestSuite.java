@@ -39,10 +39,10 @@ public class SandStorageTestSuite {
         continents.add(new Africa());
 
         //When
-        BigDecimal totalSand = continents.stream() //uruchamiamy strumien na kolekcji continents i przyposujemy do zmiennej
-                .map(SandStorage::getSandBeansQuantity) //
+        BigDecimal totalSand = continents.stream() //uruchamiamy strumien na kolekcji continents i przypisujemy do zmiennej
+                .map(SandStorage::getSandBeansQuantity)
 
-// .reduce (wartość początkowa, dla każdej liczby w kolekcji robi
+// .reduce (wartość początkowa dla każdej liczby w kolekcji robi
 // (sum, current) -> sum = sum.add(current)
 // sum - wynik pośredni uzyskany dla poprzedniego obiektu w kolekcji (na pocz.mamy BigDecimal.ZERO)
 // wyrażenie lambda do zmiennej sum przypisuje nową wartość będącą sumą dotychczasowych obliczeń
