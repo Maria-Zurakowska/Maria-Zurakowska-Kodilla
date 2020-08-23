@@ -5,8 +5,8 @@ import org.junit.Test;
 public class WeatherForecastTestSuite {
     @Test
     public void testCalculateForecastWithStub(){
+
         //Given
-//to jest (new TemperaturesStub()) „stub” interfejsu Temperatures
         Temperatures temperatures = new TemperaturesStub();
         WeatherForecast weatherForecast = new WeatherForecast(temperatures);
         //When
