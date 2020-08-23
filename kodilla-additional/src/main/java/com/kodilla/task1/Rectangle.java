@@ -1,7 +1,5 @@
 package com.kodilla.task1;
 
-import java.util.Scanner;
-
 public class Rectangle implements Figure2D {
 
     String name;
