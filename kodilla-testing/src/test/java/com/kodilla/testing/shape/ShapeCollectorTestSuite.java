@@ -27,21 +27,21 @@ public class ShapeCollectorTestSuite {
     public void testCaseAddFigure() {
         //Given
         ShapeCollector shapeCollector = new ShapeCollector();
-        Circle circle = new Circle("Circle", 7);//tworzę przykładowy obiekt
+        Circle circle = new Circle("Circle", 7);
         //When
-        shapeCollector.addFigure(circle);// dodaję figurę
+        shapeCollector.addFigure(circle);
         //Then
-        Assert.assertEquals(1, shapeCollector.getArraySize());// dodałam 1 figurę -> 1, porównuję z rozmiarem kolekcji.
+        Assert.assertEquals(1, shapeCollector.getArraySize());
     }
 
     @Test
     public void testCaseRemoveFigure() {
         //Given
         ShapeCollector shapeCollector = new ShapeCollector();
-        Circle circle = new Circle("Circle", 8);// dodaję przykładowy obiekt
-        shapeCollector.addFigure(circle);//dodaję figurę
+        Circle circle = new Circle("Circle", 8);
+        shapeCollector.addFigure(circle);
         //When
-        boolean result = shapeCollector.removeFigure(circle);//usuwam figurę
+        boolean result = shapeCollector.removeFigure(circle);
         //Then
         Assert.assertEquals(0, shapeCollector.getArraySize());
         Assert.assertTrue(result);
@@ -51,10 +51,10 @@ public class ShapeCollectorTestSuite {
     public void testCaseGetFigure() {
         //Given
         ShapeCollector shapeCollector = new ShapeCollector();
-        Circle circle = new Circle("Circle", 6);//dodaję przykładowy obiekt oraz figurę
+        Circle circle = new Circle("Circle", 6);
         shapeCollector.addFigure(circle);
         //When
-        Shape retrievedFigure = shapeCollector.getFigure(0);//pobieram figurę
+        Shape retrievedFigure = shapeCollector.getFigure(0);
         //Then
         Assert.assertEquals(circle, retrievedFigure);
     }
